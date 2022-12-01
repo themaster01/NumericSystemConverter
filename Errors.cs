@@ -7,6 +7,8 @@ namespace NumericSystemConverter
     public class Errors
     { }
 
+    // I might have messed things a little but since i'm not making a lot of properties for each exception I put them all in the same file.
+
     public class DigitError : Exception 
     {
         public DigitError() { }

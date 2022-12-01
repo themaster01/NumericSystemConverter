@@ -5,6 +5,9 @@ namespace NumericSystemConverter
 {
     class Converter
     {
+        
+        // Method one, the division and remainder process that we normally use for our Decimal-To-Anything conversion. note: (a) is not used anywhere in this function.
+
         public static int Method1(int a, int num, int b)
         {
             string result = "";
@@ -23,6 +26,7 @@ namespace NumericSystemConverter
             return Int32.Parse(result);
         }
     
+        // Conversion from Anything-To-Decimal process is also done here with steps too. Note: (b) is not used in anywhere in this function.
         public static int Method2(int a, int num, int b)
         {
                 int[] list = new int[num.ToString().Length];
@@ -48,6 +52,8 @@ namespace NumericSystemConverter
             return result;
         }
         
+
+        // Now here all I did was just combine both Method1 and Method2 (I couldn't think of better names to be honest...) and I use them to convert from any number between 2 and 10
         public static void Method3(int a, int num, int b)
         {
             Console.WriteLine($"Convertion from {a} to 10:\n");

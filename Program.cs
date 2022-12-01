@@ -5,6 +5,7 @@ namespace NumericSystemConverter
 {
     class Program
     {
+        // First we start our program with our beautiful Key-to-the-main-door function, main.
         public static void Main(string[] args)
         {
             HeadStart();
@@ -13,6 +14,8 @@ namespace NumericSystemConverter
 
         static void HeadStart()
         {
+            // Here I defined 3 variables for later use as Console.WriteLine() is only stored as string, therefore gotta try converting and adding to new values to start the checking process
+
             int base1 = 0;
             int base2 = 0;
             long number = 0;
@@ -28,10 +31,14 @@ namespace NumericSystemConverter
 
             try
             {
+                // Here I put these in a try-catch statement in case of a runtime that's going to happen in the case of having invalid inputs in there program
+
                 base1 = Int32.Parse(bas1);
                 base2 = Int32.Parse(bas2);
                 number = Int64.Parse(num);
                 
+                // Here I must test and check if given values are correct according to the actual numeric system, by checking each digit that is and is not higher than the actual given (converting from) base value
+
                 var checkList = new int[num.ToString().Length];
                 var checkNum = number;
                 int c = 0;
@@ -53,6 +60,9 @@ namespace NumericSystemConverter
                 ErrorHandling.ErrorHandler(e);
             }
             
+            // The point of this is to make a specific method to convert numbers to decimal and so on. using these if conditions to ensure the functionality and accuracy of the program, and that it's not just doing numbers for no reason
+            // I am using Custom-created exceptions, only to display reasonable errors to the end-user. To see them, lease go to Errors.cs
+
             if (base1 == 10 && base2 != 10 && base1 > base2 && base2 > 2)
             {
                 Converter.Method1(base1, (int)number, base2);
