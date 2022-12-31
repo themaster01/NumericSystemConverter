@@ -65,7 +65,7 @@ namespace NumericSystemConverter
             
             var num2 = Method1(a, num1, b);
             
-            Console.WriteLine($"The final number after conversion: {num2}");
+            Console.WriteLine($"The final number after conversion: {num2.ToString().Reverse().ToArray()}");
         }
     }
 }

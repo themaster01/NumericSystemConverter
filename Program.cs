@@ -6,10 +6,17 @@ namespace NumericSystemConverter
     class Program
     {
         // First we start our program with our beautiful Key-to-the-main-door function, main.
-        public static void Main(string[] args)
+        public static void Main()
         {
             HeadStart();
-            Thread.Sleep(-1);
+            while (true)
+            {
+                Console.WriteLine("I guess we're done here! Do you want to start over and convert another number?");
+                if (Console.ReadLine() == "yes")
+                {
+                    HeadStart();
+                } else { break; }
+            }
         }
 
         static void HeadStart()
@@ -63,7 +70,14 @@ namespace NumericSystemConverter
             // The point of this is to make a specific method to convert numbers to decimal and so on. using these if conditions to ensure the functionality and accuracy of the program, and that it's not just doing numbers for no reason
             // I am using Custom-created exceptions, only to display reasonable errors to the end-user. To see them, lease go to Errors.cs
 
-            if (base1 == 10 && base2 != 10 && base1 > base2 && base2 > 2)
+            if (base1 == base2)
+            {
+                Console.WriteLine("Are you trying to convert the same base to the same base? We will start over...\n");
+                Thread.Sleep(3000);
+                Console.Clear();
+                Main();
+            }
+            else if (base1 == 10 && base2 != 10 && base1 > base2 && base2 > 2)
             {
                 Converter.Method1(base1, (int)number, base2);
             } else if (base1 != 10 && base2 == 10)

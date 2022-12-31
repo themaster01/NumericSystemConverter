@@ -16,7 +16,7 @@ namespace NumericSystemConverter
             Console.WriteLine($"Uh-Oh! Looks like we ran into a problem! Patching the issue! it looks like it was a '{exec.Message}' \nWe're starting over with you please wait...!");
             Thread.Sleep(6000);
             Console.Clear();
-            Program.Main(new string[0]);
+            Program.Main();
         }
     }
 }
