@@ -8,7 +8,7 @@ namespace NumericSystemConverter
         
         // Method one, the division and remainder process that we normally use for our Decimal-To-Anything conversion. note: (a) is not used anywhere in this function.
 
-        public static int Method1(int a, int num, int b)
+        public static ulong Method1(int a, int num, int b)
         {
             string result = "";
                 while (num >= b)
@@ -23,7 +23,7 @@ namespace NumericSystemConverter
                         Console.WriteLine($"The final result is: {new string (result.Reverse().ToArray())}");
                     }
                 }
-            return Int32.Parse(result);
+            return ulong.Parse(result);
         }
     
         // Conversion from Anything-To-Decimal process is also done here with steps too. Note: (b) is not used in anywhere in this function.
@@ -40,7 +40,7 @@ namespace NumericSystemConverter
                     res /= 10;
                      
                     string addition = (res <= 0) ? "" : "+";
-                    Console.WriteLine($"Number{i}: {a}^({i}) * {list[i]} = {Math.Pow(a, i) * list[i]}" + $" {addition}");
+                    Console.WriteLine($"Number {i}: {a}^({i}) * {list[i]} = {Math.Pow(a, i) * list[i]}" + $" {addition}");
                     result += (int)Math.Pow(a, i) * list[i];
 
                     if (res <= 0)
@@ -60,12 +60,12 @@ namespace NumericSystemConverter
             
             var num1 = Method2(a, num, b);
             
-            Console.WriteLine($"First we converted from base {a} to base 10 which resulted in {num1}");
-            Console.WriteLine($"Convertion from 10 to {b}:\n");
+            Console.WriteLine($"\nFirst we converted from base {a} to base 10 which resulted in {num1}");
+            Console.WriteLine($"\nConvertion from 10 to {b}:\n");
+
+            var num2 = Method1(a, num1, b).ToString();
             
-            var num2 = Method1(a, num1, b);
-            
-            Console.WriteLine($"The final number after conversion: {num2.ToString().Reverse().ToArray()}");
+            Console.WriteLine($"\nThe final number after conversion: {num2.Reverse().ToArray()}");
         }
     }
 }
